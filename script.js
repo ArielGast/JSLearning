@@ -40,8 +40,6 @@ while (option !=4) {
                 }
             }
             break;
-        case 4:
-            break;
         default:
             alert("Elije una opción válida");     
 
