@@ -13,9 +13,9 @@ function egresos () {
 }
 function interes () {
     intRate = Number(prompt("Inidica cual es la tasa de interes anual que tienes disponible para invertir: "));
-    if (intRate == 0) {
-        alert("Ingrese una tasa de interes mayor que 0");
-        return;
+    while (intRate <= 0) {
+        alert("por Favor ingresa una tasa de interes mayor que cero")
+        intRate = Number(prompt("Ingresa nuevamente la tasa de interes anual: "));
     }
     return intRate ;
 }
@@ -23,8 +23,8 @@ function interes () {
 function libertad (ahorro,gasto,int) { //calculo la libertad cuando el interes generado es igual al gasto mensual
     let interesGanado = 0;
     let month = 0;
-    while (interesGanado <= gasto) {
-        interesGanado = ahorro * 0.01*int/12;
+    while (interesGanado < gasto) {
+        interesGanado = ahorro * 0.01* int/12;
         ahorro += interesGanado;
         month++;
     } 
