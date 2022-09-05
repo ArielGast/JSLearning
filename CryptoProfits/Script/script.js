@@ -61,7 +61,6 @@ function newUser () {
 
 function addInvest (userDni) {
         investments.push(new invest(userDni, ingNameAset(), ingAmountAset(), ingRateAset()));
-        console.log(investments);
     return investments;
 }
 
