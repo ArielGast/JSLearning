@@ -3,13 +3,13 @@ const users = [];
 let option = 0;
 let userDni;
 
-function user (nombreUs, apellidoUs, dni ) {
+function User (nombreUs, apellidoUs, dni ) {
     this.nombreUs = nombreUs;
     this.apellidoUs = apellidoUs;
     this.dni = dni;
 } 
 
-function invest (dni, nombre, cantidad, rendimiento) {
+function Invest (dni, nombre, cantidad, rendimiento) {
     this.dni = dni;
     this.nombre = nombre;
     this.cantidad = cantidad;
@@ -22,7 +22,7 @@ function ingUserName () {
 }
 
 function ingUserSurname () {
-    const userSurname = prompt("Ingrese su apellido: ").toUpperCase();
+    const userSurname = prompt("Ingrese su apellido: ");
     return userSurname;
 }
 
@@ -56,22 +56,36 @@ function ingRateAset () {
 }
 
 function newUser () {
-    return users.push(new user(ingUserName(),ingUserSurname(),ingUserDni()));
+    return users.push(new User(ingUserName(),ingUserSurname(),ingUserDni()));
 }
 
 function addInvest (userDni) {
-        investments.push(new invest(userDni, ingNameAset(), ingAmountAset(), ingRateAset()));
+        investments.push(new Invest(userDni, ingNameAset(), ingAmountAset(), ingRateAset()));
     return investments;
 }
 
 function consultInvest (doc) {
-    users.forEach ( function search (user) {
+    users.forEach ( function search (user) { /* función para buscar usuario por nro DNI */
         if (user.dni == doc) {
-            console.log(user.nombreUs + " " + user.apellidoUs, "\n");
+            const wrapper = document.createElement("div");
+            wrapper.innerHTML = `<h2>Hola ${user.nombreUs} ${user.apellidoUs}</h2>
+                                 <p>Vamos a listar tu cartera Cripto:</p>`
+            document.body.append(wrapper);
+        } else {
+            const wrapper = document.createElement("h2");
+            wrapper.innerText = `Usuario no encontrado`
+            document.body.append(wrapper);
         }
     }
     )
-    console.table(investments.filter((inv) => inv.dni == doc));
+    let items = investments.filter((inv) => inv.dni == doc); /* filtro las inversiones para un mismo DNI */
+    const list = document.createElement("ul");
+    document.body.append(list); 
+    for (let item of items) {
+        const element = document.createElement("li"); 
+        element.innerHTML =`Crypto: ${item.nombre} - Cantidad: ${item.cantidad} - Rendimiento: ${item.rendimiento}% Anual`;
+        list.append(element);
+    }
 }
 
 while (option !=4) {
@@ -81,11 +95,11 @@ while (option !=4) {
             newUser();
             break;
         case 2:
-            userDni = Number(prompt("Ingrese su DNI: "));
+            ingUserDni();
             addInvest(userDni);
             break;
         case 3:
-            userDni = Number(prompt("Ingresa tu DNI para consultar tu cartea de inversiones: "));
+            ingUserDni();
             consultInvest(userDni);
             break;
         case 4:
