@@ -1,0 +1,27 @@
+body {
+    background: rgb(107,73,154);
+    background: linear-gradient(90deg, rgba(107,73,154,1) 0%, rgba(9,9,121,1) 44%, rgba(96,36,112,1) 96%);
+}
+.nav {
+    width: 60%;
+    display: flex;
+}
+.img-menu {
+    width: 30%;
+
+}
+.showMenu {
+    display: flex;
+    justify-content: flex-end;
+}
+.hideMenu {
+    display: none;
+}
+ul {
+    list-style: none;
+}
+li {
+    color: aliceblue;
+    padding: 2.5rem;
+    font-size: 1.5rem;
+}
