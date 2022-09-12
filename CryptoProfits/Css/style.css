@@ -3,11 +3,11 @@ body {
     background: linear-gradient(90deg, rgba(107,73,154,1) 0%, rgba(9,9,121,1) 44%, rgba(96,36,112,1) 96%);
 }
 .nav {
-    width: 60%;
+    width: 100%;
     display: flex;
 }
 .img-menu {
-    width: 30%;
+    width: 20%;
 
 }
 .showMenu {
