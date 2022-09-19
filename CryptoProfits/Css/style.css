@@ -1,9 +1,9 @@
 body {
-    background: rgb(107,73,154);
-    background: linear-gradient(90deg, rgba(107,73,154,1) 0%, rgba(9,9,121,1) 44%, rgba(96,36,112,1) 96%);
-}
+    background: rgb(245,245,245);
+background: linear-gradient(90deg, rgba(245,245,245,1) 0%, rgba(225,201,238,1) 51%, rgba(90,64,97,1) 96%);
+} 
 .nav {
-    width: 100%;
+    width: 80%;
     display: flex;
 }
 .img-menu {
@@ -21,7 +21,24 @@ ul {
     list-style: none;
 }
 li {
-    color: aliceblue;
+    color: rgb(17, 53, 83);
     padding: 2.5rem;
     font-size: 1.5rem;
+}
+#login {
+    width: 50%;
+    margin: auto;
+}
+#form_login {
+    display: flex;
+    flex-direction: column;
+}
+#name,
+#dni {
+    width: 20%;
+}
+#enviar_form {
+    width: 8%;
+    border-radius: 5px;
+    margin-top: 2%;
 }
