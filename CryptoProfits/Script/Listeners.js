@@ -12,6 +12,10 @@ registrarse.onclick = () => {
     newUser();
 }
     
-
 const inicio = document.getElementById('login');
 inicio.onload = home();
+
+const verCotizaciones = document.getElementById('cotizaciones');
+verCotizaciones.onclick = () => {
+    cotizaciones();
+}

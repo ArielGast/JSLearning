@@ -202,3 +202,12 @@ function showInvest (dni) {
         mostrarCartera.appendChild(parrafo);
     }
 } 
+
+// Cotizaciones de Criptos (a futuro)
+function cotizaciones () {
+    const contenido = document.getElementById('login')
+    contenido.innerHTML = "";
+    const parrafo = document.createElement('h3');
+    parrafo.innerHTML = ` Proximamente`;
+    contenido.appendChild(parrafo);
+}
