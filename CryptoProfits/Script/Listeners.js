@@ -7,3 +7,11 @@ const clickHome = document.getElementById('home');
 clickHome.onclick = () => {
     home();
 }
+const registrarse = document.getElementById('registrarse');
+registrarse.onclick = () => {
+    newUser();
+}
+    
+
+const inicio = document.getElementById('login');
+inicio.onload = home();

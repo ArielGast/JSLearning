@@ -26,15 +26,14 @@ li {
     font-size: 1.5rem;
 }
 #login {
-    width: 50%;
+    width: 100%;
     margin: auto;
 }
-#form_login {
+#form_login, #form_cripto {
     display: flex;
     flex-direction: column;
 }
-#name,
-#dni {
+#name, #dni, #CriptoName, #tag, #Cantidad, #Rendimiento {
     width: 20%;
 }
 #enviar_form {
