@@ -119,7 +119,7 @@ function homeUser (nombre, dni) {
                            <div class="navbar-nav">
                            <a class="nav-link" id= "addInvest"  href="#">Agregar Inversión</a>
                            <a class="nav-link" id = "consInvest" href="#">Consutlar Cartera</a>
-                           <a class="nav-link" id = "modInvest" href="#">Borrar Inversión</a>
+                           <a class="nav-link" id = "delInvest" href="#">Borrar Inversión</a>
                            </div>
                            </div>
                            </div>
@@ -133,6 +133,10 @@ function homeUser (nombre, dni) {
     const consInvest = document.getElementById('consInvest');
     consInvest.onclick = () => {
         showInvest(dni, nombre);
+    }
+    const delInvest = document.getElementById('delInvest');
+    delInvest.onclick = () => {
+        deleteInvest(dni);
     }
 }
 
@@ -165,7 +169,7 @@ function agregarInversion (dni) {
         const inversionCargada = JSON.parse(localStorage.getItem(dni));
         if (inversionCargada == null) {
             localStorage.setItem(dni, JSON.stringify([inversion]))
-            mensajeCargar (formInver, investName.value, dni);
+            mensajeCargar (formInver);
         } else {
             inversionCargada.push(inversion);
             localStorage.setItem(dni, JSON.stringify(inversionCargada));
@@ -207,7 +211,44 @@ function showInvest (dni) {
 function cotizaciones () {
     const contenido = document.getElementById('login')
     contenido.innerHTML = "";
+    const elemento = document.getElementById('content');
+    elemento.innerHTML = "";
     const parrafo = document.createElement('h3');
     parrafo.innerHTML = ` Proximamente`;
     contenido.appendChild(parrafo);
+}
+
+// borrar inversion
+function deleteInvest(dni) {
+    const contenido = document.getElementById('content');
+    contenido.innerHTML = "";
+    const cartera = JSON.parse(localStorage.getItem(dni));
+    contenido.innerHTML = `
+                        <h3>Ingresa el Tag de la cripto que deseas borrar</h3>
+                        <input type = "text" id = "Tag" name = "tag" placeholder = "TAG" required>
+                        <input type = "button" id = "validar" value = "validar">
+                        `
+    const validar = document.getElementById('validar');
+    validar.onclick = () => {
+        const tag = document.getElementById('Tag');
+        const carteraFiltrada = cartera.filter((item) => item.investTag === tag.value);
+        console.log(carteraFiltrada);
+        for (let inversion of carteraFiltrada){
+            const datos = document.createElement('p');
+            datos.innerHTML = `Cripto: ${inversion.investName} TAG: ${inversion.investTag} Cantidad: ${inversion.investAmount} Rendimiento Anual: ${inversion.investRate}%`;
+            contenido.appendChild(datos);
+        }
+        const btnBorrar = document.createElement('span');
+        btnBorrar.innerHTML =`
+                            <input type = "button" id = "btn_borrar" value = "Borrar">
+        ` 
+        contenido.appendChild(btnBorrar);
+        const borrar = document.getElementById('btn_borrar');
+        borrar.onclick = () => {
+            const nuevaCartera = cartera.filter(item => item.investTag != tag.value);
+            localStorage.setItem(dni, JSON.stringify(nuevaCartera)); 
+            return showInvest(dni);           
+
+        }
+    }
 }
