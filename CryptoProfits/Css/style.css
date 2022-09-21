@@ -6,17 +6,7 @@ background: linear-gradient(90deg, rgba(245,245,245,1) 0%, rgba(225,201,238,1) 5
     width: 80%;
     display: flex;
 }
-.img-menu {
-    width: 20%;
 
-}
-.showMenu {
-    display: flex;
-    justify-content: flex-end;
-}
-.hideMenu {
-    display: none;
-}
 ul {
     list-style: none;
 }
@@ -40,4 +30,19 @@ li {
     width: 8%;
     border-radius: 5px;
     margin-top: 2%;
+}
+.home__h1 {
+    font-size: 4 rem;
+    text-transform: uppercase;
+    text-align: center;
+}
+.home__img {
+    margin-left: 20%;
+    margin-bottom: 5%;
+}
+.home__p {
+    font-size: 1.5rem;
+}
+.wrapper {
+    margin-top: 1% ;
 }

@@ -27,8 +27,10 @@ function logIn () {
                        <input type ="number" id ="dni" userDni = "dni" required>
                        <input type = "button" id = "enviar_form" value="Login">
                        </form>
+                       <section class = "wrapper">
                        <span class="texto">No sos usuario?</span>
                        <button type = "submit" id = "new-user">Registrate</button>
+                       </section>
                       `
     const clickNewUser = document.getElementById('new-user');
     clickNewUser.onclick = () => { 
@@ -75,11 +77,11 @@ function home() {
     content.innerHTML = "";
     home.innerHTML = "";
     home.innerHTML = `
-                        <section>
-                        <h1>Conocé y hacer crecer tus ahorros Criptos</h1>
-                        <img src="./Images/investment7a.jpg" alt="inversion">
+                        <section class = "home">
+                        <h1 class = "home__h1">Conocé y hacer crecer tus ahorros Criptos</h1>
+                        <img class = "home__img" src="./Images/investment7a.jpg" alt="inversion">
                         </section>                        
-                        <p>Ingresa para comenzar o Registrate</p>
+                        <p class = "home__p">Seleccioná Ingresar en el menú para  comenzar o Registrate</p>
     
     `
 }
@@ -110,7 +112,7 @@ function homeUser (nombre, dni) {
     const contenido = document.getElementById('login');
     contenido.innerHTML = "";
     contenido.innerHTML = `<h3>Bienvenido ${nombre}</h3>
-                           <nav class="navbar navbar-expand-lg bg-light">
+                           <nav class="navbar navbar-expand-lg">
                            <div class="container-fluid">
                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                            <span class="navbar-toggler-icon"></span>
